@@ -7,9 +7,18 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <AVFoundation/AVFoundation.h>
+
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
+@property (strong) AVAudioPlayer *audioPlayer;
+@property (weak) IBOutlet NSSliderCell *progressSlider;
+@property (weak) IBOutlet NSLevelIndicator *volumeLevel;
+
+- (IBAction)takePctValueForProgressFrom:(id)sender;
+- (IBAction)toggle:(id)sender;
+- (void)updateDisplay;
 
 @end
