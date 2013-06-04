@@ -13,7 +13,6 @@
 		D69567F5175D58B00028D0D2 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D69567F3175D58B00028D0D2 /* Credits.rtf */; };
 		D69567F8175D58B00028D0D2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D69567F7175D58B00028D0D2 /* AppDelegate.m */; };
 		D69567FB175D58B10028D0D2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D69567F9175D58B10028D0D2 /* MainMenu.xib */; };
-		D6956802175D5A350028D0D2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6956801175D5A350028D0D2 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +29,6 @@
 		D69567F6175D58B00028D0D2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D69567F7175D58B00028D0D2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D69567FA175D58B10028D0D2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		D6956801175D5A350028D0D2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = /System/Library/Frameworks/AVFoundation.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,7 +37,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D69567E5175D58B00028D0D2 /* Cocoa.framework in Frameworks */,
-				D6956802175D5A350028D0D2 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,7 +63,6 @@
 		D69567E3175D58B00028D0D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D6956801175D5A350028D0D2 /* AVFoundation.framework */,
 				D69567E4175D58B00028D0D2 /* Cocoa.framework */,
 				D69567E6175D58B00028D0D2 /* Other Frameworks */,
 			);
