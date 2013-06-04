@@ -12,52 +12,41 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
-
-//    self.audioPlayer = nil;
-    NSString *filePath = @"/asdf.mp3";
+    NSString *filePath = @"/dev/null";
     NSLog(@"%@", filePath);
     NSURL *fileURL = [[NSURL alloc] initFileURLWithPath:filePath];
     NSLog(@"%@", [fileURL absoluteString]);
+    
+    NSDictionary *audioSettings = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   [NSNumber numberWithInt:AVAudioQualityMedium],AVEncoderAudioQualityKey,
+                                   [NSNumber numberWithInt:16],AVEncoderBitRateKey,
+                                   [NSNumber numberWithInt: 1],AVNumberOfChannelsKey,
+                                   [NSNumber numberWithFloat:44100.0],AVSampleRateKey,
+                                   nil];
 
-    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:nil];
-    [self.audioPlayer prepareToPlay];
-    [self.audioPlayer setCurrentTime:0.0];
-    [self.audioPlayer setVolume:0.5];
-    [self.audioPlayer setMeteringEnabled:YES];
+    [self setRecorder:[[AVAudioRecorder alloc] initWithURL:fileURL settings:audioSettings error:nil]];
+    [self.recorder prepareToRecord];
+    [self.recorder setMeteringEnabled:YES];
     [NSTimer scheduledTimerWithTimeInterval:.1 target:self selector:@selector(updateDisplay) userInfo:nil repeats:YES];
 }
 
-- (IBAction)takePctValueForProgressFrom:(id)sender {
-    float pct = [sender floatValue];
-    NSLog(@"progress set to: %3.2f", pct);
-    
-    float newLoc = [self.audioPlayer duration] * (pct / 100);
-    
-    NSLog(@"len: %f | newLoc: %f", [self.audioPlayer duration], newLoc);
-    [self.audioPlayer setCurrentTime:newLoc];
-}
 
 - (IBAction)toggle:(id)sender {
     NSLog(@"playing: %li", [sender state]);
     if (1 == [sender state]){
-        [self.audioPlayer play];
+        [self.recorder record];
     }
     else
     {
-        [self.audioPlayer pause];
+        [self.recorder stop];
     }
 }
 
 - (void)updateDisplay {
-    float pctComplete = [self.audioPlayer currentTime] / [self.audioPlayer duration] * 100;
-
-    NSLog(@"setting bar to: %3.2f", pctComplete);
-    [self.progressSlider setFloatValue:pctComplete];
-    
-    [self.audioPlayer updateMeters];
-    float level = [self.audioPlayer peakPowerForChannel:0];
-    float db = ((level + 160) / 160) * 10;
+    float tweak = 0.0; //-20.0;
+    [self.recorder updateMeters];
+    float level = [self.recorder averagePowerForChannel:0];
+    float db = ((level + 160 + tweak) / 160) * 20;
     
     NSLog(@"level: %f | db: %f", level, db);
     [self.volumeLevel setFloatValue:db];
