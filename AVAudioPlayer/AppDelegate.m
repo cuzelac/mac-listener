@@ -63,8 +63,10 @@
     [self.audioPlayer updateMeters];
     float level = [self.audioPlayer averagePowerForChannel:0];
 //    float db = ((level + 160 + tweak) / 160) * 10;
-    float tweak = 60;
-    float db = (level + (120 - tweak) ) / (120 - tweak) * 100;
+    float db = (level + 60) / 60 * 100;
+    // Something isnt' write about the math in this line
+    //float tweak = 60;
+    //float db = (level + (120 - tweak) ) / (120 - tweak) * 100;
     
     NSLog(@"level: %f | db: %f", level, db);
     [self.volumeLevel setFloatValue:floor(db / 100 * self.volumeLevel.maxValue)];
