@@ -406,7 +406,6 @@
 							<string key="NSFrame">{{26, 18}, {389, 18}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSLevelIndicatorCell" key="NSCell" id="353049210">
@@ -608,6 +607,14 @@
 						<reference key="destination" ref="881383404"/>
 					</object>
 					<int key="connectionID">583</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">theMenu</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="649796088"/>
+					</object>
+					<int key="connectionID">599</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -854,7 +861,7 @@
 								<float key="scoringTypeFloat">22</float>
 								<int key="contentType">2</int>
 							</object>
-							<object class="IBNSLayoutConstraint" id="41514408">
+							<object class="IBNSLayoutConstraint" id="112970015">
 								<reference key="firstItem" ref="519257968"/>
 								<int key="firstAttribute">3</int>
 								<int key="relation">0</int>
@@ -886,7 +893,7 @@
 								<float key="scoringTypeFloat">24</float>
 								<int key="contentType">2</int>
 							</object>
-							<object class="IBNSLayoutConstraint" id="836408375">
+							<object class="IBNSLayoutConstraint" id="525848541">
 								<reference key="firstItem" ref="439893737"/>
 								<int key="firstAttribute">4</int>
 								<int key="relation">0</int>
@@ -934,7 +941,7 @@
 								<float key="scoringTypeFloat">24</float>
 								<int key="contentType">2</int>
 							</object>
-							<object class="IBNSLayoutConstraint" id="967597322">
+							<object class="IBNSLayoutConstraint" id="550649113">
 								<reference key="firstItem" ref="1037838407"/>
 								<int key="firstAttribute">3</int>
 								<int key="relation">0</int>
@@ -1075,12 +1082,12 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">586</int>
-						<reference key="object" ref="41514408"/>
+						<reference key="object" ref="112970015"/>
 						<reference key="parent" ref="439893737"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">588</int>
-						<reference key="object" ref="967597322"/>
+						<reference key="object" ref="550649113"/>
 						<reference key="parent" ref="439893737"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -1095,7 +1102,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">595</int>
-						<reference key="object" ref="836408375"/>
+						<reference key="object" ref="525848541"/>
 						<reference key="parent" ref="439893737"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -1129,12 +1136,12 @@
 				<string key="371.IBWindowTemplateEditedContentRect">{{380, 496}, {480, 360}}</string>
 				<integer value="1" key="371.NSWindowTemplate.visibleAtLaunch"/>
 				<array class="NSMutableArray" key="372.IBNSViewMetadataConstraints">
-					<reference ref="967597322"/>
+					<reference ref="550649113"/>
 					<reference ref="1067168602"/>
 					<reference ref="184091656"/>
-					<reference ref="836408375"/>
+					<reference ref="525848541"/>
 					<reference ref="164018893"/>
-					<reference ref="41514408"/>
+					<reference ref="112970015"/>
 					<reference ref="366327865"/>
 				</array>
 				<string key="372.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1185,7 +1192,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">597</int>
+			<int key="maxID">599</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1208,6 +1215,7 @@
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="progressSlider">NSSliderCell</string>
+						<string key="theMenu">NSMenu</string>
 						<string key="volumeLevel">NSLevelIndicator</string>
 						<string key="window">NSWindow</string>
 					</dictionary>
@@ -1215,6 +1223,10 @@
 						<object class="IBToOneOutletInfo" key="progressSlider">
 							<string key="name">progressSlider</string>
 							<string key="candidateClassName">NSSliderCell</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="theMenu">
+							<string key="name">theMenu</string>
+							<string key="candidateClassName">NSMenu</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="volumeLevel">
 							<string key="name">volumeLevel</string>

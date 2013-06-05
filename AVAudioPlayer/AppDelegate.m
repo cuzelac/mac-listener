@@ -26,6 +26,19 @@
     [self.audioPlayer setVolume:0.5];
     [self.audioPlayer setMeteringEnabled:YES];
     [NSTimer scheduledTimerWithTimeInterval:.01 target:self selector:@selector(updateDisplay) userInfo:nil repeats:YES];
+    [self activateStatusMenu];
+}
+
+- (void)activateStatusMenu
+{
+    NSStatusBar *bar = [NSStatusBar systemStatusBar];
+    
+    NSStatusItem *theItem = [bar statusItemWithLength:NSVariableStatusItemLength];
+    self.item = theItem;
+    
+    [theItem setTitle: NSLocalizedString(@"Tablet",@"")];
+    [theItem setHighlightMode:YES];
+    [theItem setMenu:self.theMenu];
 }
 
 - (IBAction)takePctValueForProgressFrom:(id)sender {

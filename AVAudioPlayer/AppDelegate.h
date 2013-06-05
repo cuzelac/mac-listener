@@ -14,8 +14,10 @@
 
 @property (assign) IBOutlet NSWindow *window;
 @property (strong) AVAudioPlayer *audioPlayer;
+@property (strong) NSStatusItem *item;
 @property (weak) IBOutlet NSSliderCell *progressSlider;
 @property (weak) IBOutlet NSLevelIndicator *volumeLevel;
+@property (weak) IBOutlet NSMenu *theMenu;
 
 - (IBAction)takePctValueForProgressFrom:(id)sender;
 - (IBAction)toggle:(id)sender;
