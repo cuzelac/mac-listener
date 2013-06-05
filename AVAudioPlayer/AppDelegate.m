@@ -25,7 +25,7 @@
     [self.audioPlayer setCurrentTime:0.0];
     [self.audioPlayer setVolume:0.5];
     [self.audioPlayer setMeteringEnabled:YES];
-    [NSTimer scheduledTimerWithTimeInterval:.1 target:self selector:@selector(updateDisplay) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:.01 target:self selector:@selector(updateDisplay) userInfo:nil repeats:YES];
 }
 
 - (IBAction)takePctValueForProgressFrom:(id)sender {
@@ -55,11 +55,19 @@
     NSLog(@"setting bar to: %3.2f", pctComplete);
     [self.progressSlider setFloatValue:pctComplete];
     
+    // Most audio falls in the range of -60 - 0
+    // so we'll add 60
+    // anything below 0 is trunc'd to zero
+    // anything above 60 is trunc'd to 60
+    
     [self.audioPlayer updateMeters];
-    float level = [self.audioPlayer peakPowerForChannel:0];
-    float db = ((level + 160) / 160) * 10;
+    float level = [self.audioPlayer averagePowerForChannel:0];
+//    float db = ((level + 160 + tweak) / 160) * 10;
+    float tweak = 60;
+    float db = (level + (120 - tweak) ) / (120 - tweak) * 100;
     
     NSLog(@"level: %f | db: %f", level, db);
-    [self.volumeLevel setFloatValue:db];
+    [self.volumeLevel setFloatValue:floor(db / 100 * self.volumeLevel.maxValue)];
 }
+
 @end
